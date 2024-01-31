@@ -1,0 +1,129 @@
+﻿<Page
+    x:Class="Lotto_Lab2.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lotto_Lab2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+
+    <Grid RequestedTheme="Light" Background="#fff" >
+        <Grid.ColumnDefinitions>
+            <!-- left margin -->
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <!-- Main column-->
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <!-- right margin -->
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <!-- Main column-->
+        <Grid Grid.Column="1" Margin="10,10,10,10">
+            <Grid.RowDefinitions>
+                <!-- title -->
+                <RowDefinition Height="auto"></RowDefinition>
+                <!-- inputs -->
+                <RowDefinition Height="3*"></RowDefinition>
+                <!-- result -->
+                <RowDefinition Height="50"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <!-- title -->
+            <TextBlock Grid.Row="0" FontSize="40" FontWeight="bold" TextWrapping="Wrap">Vinna 100 000 000 Kr idag NU 150%</TextBlock>
+
+            <!-- inputs -->
+            <Grid Grid.Row="1" Margin="0,10,0,10">
+                
+                <Grid.RowDefinitions>
+                    <!-- inputs row-->
+                    <RowDefinition Height="*"></RowDefinition>
+                    <!-- input amout checks + simulate-->
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- inputs row-->
+                <Grid Grid.Row="0" VerticalAlignment="Center">
+
+                    <Grid.RowDefinitions>
+                        <!-- input title-->
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <!-- input fields-->
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <!-- input fields status-->
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="1.5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.ColumnSpan="7">Lotto Rad:</TextBlock>
+                    <TextBox Name="F1" Grid.Row="1" Grid.Column="0" TextChanged="Text_Changed_FX" LostFocus="State_Refresh_WhenLostFocus" Height="30" Margin="1 0" BorderThickness="1 1 1 0"></TextBox>
+                    <TextBox Name="F2" Grid.Row="1" Grid.Column="1" TextChanged="Text_Changed_FX" LostFocus="State_Refresh_WhenLostFocus" Height="30" Margin="1 0" BorderThickness="1 1 1 0"></TextBox>
+                    <TextBox Name="F3" Grid.Row="1" Grid.Column="2" TextChanged="Text_Changed_FX" LostFocus="State_Refresh_WhenLostFocus" Height="30" Margin="1 0" BorderThickness="1 1 1 0"></TextBox>
+                    <TextBox Name="F4" Grid.Row="1" Grid.Column="3" TextChanged="Text_Changed_FX" LostFocus="State_Refresh_WhenLostFocus" Height="30" Margin="1 0" BorderThickness="1 1 1 0"></TextBox>
+                    <TextBox Name="F5" Grid.Row="1" Grid.Column="4" TextChanged="Text_Changed_FX" LostFocus="State_Refresh_WhenLostFocus" Height="30" Margin="1 0" BorderThickness="1 1 1 0"></TextBox>
+                    <TextBox Name="F6" Grid.Row="1" Grid.Column="5" TextChanged="Text_Changed_FX" LostFocus="State_Refresh_WhenLostFocus" Height="30" Margin="1 0" BorderThickness="1 1 1 0"></TextBox>
+                    <TextBox Name="F7" Grid.Row="1" Grid.Column="6" TextChanged="Text_Changed_FX" LostFocus="State_Refresh_WhenLostFocus" Height="30" Margin="1 0" BorderThickness="1 1 1 0"></TextBox>
+                    <Button Grid.Row="1" Grid.Column="7" Click="Generate_Random_Row" Height="30" HorizontalAlignment="Stretch" Margin="10 0 0 0">Jag har tur</Button>
+
+                    <Rectangle Name="S1" Grid.Row="3" Grid.Column="0" Height="3" Margin="1" Fill="#888"></Rectangle>
+                    <Rectangle Name="S2" Grid.Row="3" Grid.Column="1" Height="3" Margin="1" Fill="#888"></Rectangle>
+                    <Rectangle Name="S3" Grid.Row="3" Grid.Column="2" Height="3" Margin="1" Fill="#888"></Rectangle>
+                    <Rectangle Name="S4" Grid.Row="3" Grid.Column="3" Height="3" Margin="1" Fill="#888"></Rectangle>
+                    <Rectangle Name="S5" Grid.Row="3" Grid.Column="4" Height="3" Margin="1" Fill="#888"></Rectangle>
+                    <Rectangle Name="S6" Grid.Row="3" Grid.Column="5" Height="3" Margin="1" Fill="#888"></Rectangle>
+                    <Rectangle Name="S7" Grid.Row="3" Grid.Column="6" Height="3" Margin="1" Fill="#888"></Rectangle>
+                </Grid>
+                <!-- input amount checks + simulate -->
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" FontSize="20">Antal Drag</TextBlock>
+                    <TextBox Name="BigNumGoodYupp" Grid.Row="1" Grid.Column="1" TextChanged="Amount_Checks"  VerticalAlignment="Center" MaxLength="6" TextWrapping="Wrap"/>
+                    <Slider Name="MainSlider" Grid.Row="1" Grid.Column="0" ValueChanged="MainSlider_ValueChanged" Margin="10" Minimum="1" Maximum="999999" />
+                    <Button Name="StartRollingBtn" Grid.Row="2" Grid.ColumnSpan="2" Click="StartRollingBtn_Click"  Height="45" FontWeight="Bold" HorizontalAlignment="Stretch">
+                        <FlyoutBase.AttachedFlyout>
+                            <Flyout>
+                                <TextBlock Width="auto">Lotto raden är felaktigt!<LineBreak />Varenda fält måste består av en siffra mellan 1 och 35</TextBlock>
+                            </Flyout>
+                        </FlyoutBase.AttachedFlyout>
+                        Simulera
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <!-- result-->
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Rectangle Name="Res5_rec" Grid.Column="0" VerticalAlignment="Bottom" Height="6" Fill="#ddd"></Rectangle>
+                <TextBlock Name="Res5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">Fem rätt:</TextBlock>
+                <Rectangle Name="Res6_rec" Grid.Column="1" VerticalAlignment="Bottom" Height="6" Fill="#ddd"></Rectangle>
+                <TextBlock Name="Res6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">Sex rätt:</TextBlock>
+                <Rectangle Name="Res7_rec" Grid.Column="2" VerticalAlignment="Bottom" Height="6" Fill="#ddd"></Rectangle>
+                <TextBlock Name="Res7" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">Sju rätt:</TextBlock>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
