@@ -230,7 +230,8 @@ namespace Lotto_Lab2
             int i;
             for(i = 0; i < fields.Length; i++) // generate a set of randoms. (might contain duplicates)
             {
-                randoms[i] = random.Next(1,35);
+                randoms[i] = random.Next(1,36);
+                if (randoms[i] == 36) i--;
             }
             i = 1;
             while (i < fields.Length) { // check for duplicates
@@ -268,8 +269,7 @@ namespace Lotto_Lab2
             else
             {
                 BigNumGoodYupp.Text = MainSlider.Value.ToString();
-            }
-                
+            }                
         }
 
         private void MainSlider_ValueChanged(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
